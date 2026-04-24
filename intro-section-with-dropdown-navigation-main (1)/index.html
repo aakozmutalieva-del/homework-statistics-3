@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Intro section with dropdown navigation</title>
+</head>
+
+<body>
+  <div class="card">
+    <h2>Healthcore</h2>
+    <input type="number" id="weight"
+    placeholder="Weight (kg)"/>
+    <input type="number" id="height"
+    placeholder="Height (cm)"/>
+    <button onclick="calculate()">Result</button>
+    <p id="result"></p>
+  </div>
+
+  <script>
+    const calculate=()=>{const w=+document.getElementById("weight").value;
+     const h=+document.getElementById("height").value/100;
+
+    if (!w||!h) return alert("Enter Data");
+
+    const bmi=(w/h**2).toFixed(1);
+    const ideal = (h*100-100-(h*100-150)/4).toFixed(1);
+   const msg=bmi<18.5
+   ? "Annorexia"
+    :bmi<25
+   ? "Good Form"
+   :"Obesity";
+   document.getElementById("result").innerHTML=
+
+   
+    `
+        ИМТ: <b>${bmi}</b> | Идеал: <b>${ideal} кг</b><br>
+        <i>${msg}</i>
+    `;
+  
+    
+  
+ 
+    }
+  </script>
+</body>
+
+
+
+
+</html>
